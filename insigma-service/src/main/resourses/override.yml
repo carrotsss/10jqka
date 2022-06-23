@@ -1,0 +1,103 @@
+server:
+  port: 9050
+
+vanish:
+  push:
+    swith: false
+
+spring:
+  datasource:
+    dynamic:
+      primary: ainvestdb
+      strict: false
+      datasource:
+        ainvestdb:
+          url: jdbc:mysql://10.0.20.234:3306/f10?userUnicode=true&characterEncoding=utf-8&useSSL=false&multiQueries=true&autoRecommend
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            filter: stat
+            initialSize: 2
+            maxActive: 20
+            minIdle: 2
+            maxWait: 60000
+            timeBetweenEvictionRunsMills: 60000
+            minEvictableIdleTimeMillis: 30000
+            validationQuery: SELECT 1
+            testWhileIdle: true
+            poolPreparedStatments: true
+            connectionProperties: true
+            maxPoolPreparedStatementPerConnectionSize: 20
+          source2:
+
+  kafka:
+    consumer:
+      group-id:
+  redis:
+    host: 10.0.20.234
+    port: 6379
+  mail:
+    host: stmp.aliyun.com
+    username: bochengwei@insigma.com.cn
+    password: cc
+    properties:
+      mail:
+        debug: true
+        step:
+          auth: ture
+          port 25
+      to: bochengwei@insigma.com.cn
+
+mybatis-plus:
+  mapper-location: classpath*:/mybatis/**/*.xml
+  global-config:
+    db-config:
+      property-format: "\"%s\""
+  type-enums-package: com.insigma.enum
+
+xxl:
+  job:
+    executor:
+      prot: 19060
+
+logging:
+  file:
+    level: INFO
+    name: ${spring.application.name}/${spring.application.name}.log
+
+ext:
+  sync:
+    sod:
+      retry:
+        count: 5
+        interval: 10000
+      data: EXT235,EXT236
+
+management:
+  health:
+    mail:
+      enabled: false
+
+ftp:
+  server: ftp3.interactivebroker.com
+  port: 21
+  username: shortstock
+  password:
+  localpath: /data/hxtrade/project/datafile
+  remotePath: /home/sftpuser
+  usa-filename: usa.txt
+  usamd5.filename: usa.txt.md5
+  retry.time: 5
+  interval.time: 10000
+
+wsb:
+  sftp:
+    host: 10.0.28.233
+    port: 22
+    username: root
+    password: root
+
+hq:
+  data:
+    uri: http://10.0.23.211:6060/hexin

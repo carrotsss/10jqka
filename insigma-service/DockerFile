@@ -1,0 +1,9 @@
+FROM hub-dev.hexin.cn/baseimages/hexin-centos7-openjdk11
+MAINTAINER bochengwei@insigma.com.cn
+
+ENV TZ=America/New_York
+
+RUN mkdir -p /data/hxtrade/project/datafile
+COPY ./data-process-service/target/insigma.jar /data/hxtrade/project/
+
+CMD java -jar /data/hxtrade/project/insigma.jar

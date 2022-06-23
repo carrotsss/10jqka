@@ -1,0 +1,20 @@
+spring:
+  config:
+    location: classpath:/ovse-default.yml,classpath:/override.yml,optinal:env.yml
+  application:
+      name: data-process
+  cloud:
+    nacos:
+      server-addr: nacos.lh.com
+      config:
+        file-extention: yaml
+      group:
+        OVSE
+      ext-confit[0]:
+        data-id: s3-metadata.yaml
+        group: OVSE
+
+xxl:
+  job:
+    executor:
+      appname: ${spring.application.name}
