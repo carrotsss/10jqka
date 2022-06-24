@@ -26,7 +26,7 @@ public class QuoteCommandFactory {
     @Resource
     private QuoteCacheKeyManager quoteCacheKeyManager;
 
-    public final String HSET_COMMAND = "hset";
+    public static final String HSET_COMMAND = "hset";
 
     public CommandWrapper getHsetCommand(String key, String field, Object value) {
         RedisSerializer keySerializer = stringRedisTemplate.getKeySerializer();
