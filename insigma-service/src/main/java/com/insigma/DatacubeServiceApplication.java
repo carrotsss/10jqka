@@ -1,5 +1,6 @@
-package main.java.com.insigma;
+package com.insigma;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
@@ -27,6 +28,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableS3FileStore
 @EnbaleOvseLocalCache
 @EnableTransactionManagement
+@MapperScan("com.jqka.ovse.litequotation.repository.mapper")
+@EnableMethodCache(basePackages = "con.jqka.ovse.litequotation")
+@EnableCreateCacheAnnotation
 public class DatacubeServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(DatacubeServiceApplication.class, args);

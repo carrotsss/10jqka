@@ -13,5 +13,9 @@ import java.io.Serializable;
  */
 @Data
 public class LiteQuoteBaseDTO implements Serializable {
-
+    private SecurityDTO securityDTO;
+    private Integer tradeDate;
+    private Integer tradePeriod;
+    private Long eventTime;
+    private long systemTime;
 }

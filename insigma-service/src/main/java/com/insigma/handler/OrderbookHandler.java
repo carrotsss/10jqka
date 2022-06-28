@@ -1,5 +1,6 @@
 package com.insigma.handler;
 
+import com.insigma.constant.QuoteFiledConst;
 import com.insigma.handler.command.CommandWrapper;
 import com.insigma.handler.command.QuoteCommandFactory;
 import org.springframework.context.ApplicationEventPublisher;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @Version 1.0
  */
 @Component
-public class OrderbookHandler extends QuoteHandler {
+public class OrderbookHandler implements QuoteHandler {
     @Resource
     private QuoteCommandFactory quoteCommandFactory;
 
@@ -32,13 +32,14 @@ public class OrderbookHandler extends QuoteHandler {
 
     private Map<String, QuoteMsgBo> latestMsg = new ConcurrentHashMap<>();
 
-    public void handle(List<QuoteMsgBo> quoteMsgBos) {
+    @Override
+    public void handle(List<QuoteMsgBO> quoteMsgBOList) {
         List<CommandWrapper> commandWrappers = quoteMsgBos.stream().flatMap(o -> {
             return quoteCommandFactory.getCommands(o).stream();
         }).collect(Collectors.toList());
         cacheManager.handle(commandWrappers);
-        quoteMsgBos.forEach(o->{
-            if (!hashChange(o)) {
+        quoteMsgBos.forEach(o -> {
+            if (!hasChange(o)) {
                 return;
             }
             applicationEventPublisher.publishEvent(o);
@@ -53,8 +54,15 @@ public class OrderbookHandler extends QuoteHandler {
             latestMsg.put(key, quoteMsgBo);
             return true;
         }
-        BigDecimal sell1st = (BigDecimal) quoteMsgBo.getFiled(QuoteFileCount.SELL_PRICE_1ST);
-        BigDecimal buy1st = (BigDecimal) quoteMsgBo.getFiled(QuoteFileCount.BUY_PRICE_1ST);
-        BigDecimal oldSell1st=
+        BigDecimal sell1st = (BigDecimal) quoteMsgBo.getFiled(QuoteFiledConst.SELL_PRICE_1ST);
+        BigDecimal buy1st = (BigDecimal) quoteMsgBo.getFiled(QuoteFiledConst.BUY_PRICE_1ST);
+        BigDecimal oldSell1st = (BigDecimal) quoteMsgBo.getFiled(QuoteFiledConst.SELL_PRICE_1ST);
+
+        latestMsg.put(key, quoteMsgBo);
+        if ((oldSell1st != null && oldSell1st.compareTo(sell1st) == 0) && (oldSell1st != null && oldSell1st.compareTo(buy1st) == 0)) {
+            return false;
+        }
+        return true;
     }
+
 }
