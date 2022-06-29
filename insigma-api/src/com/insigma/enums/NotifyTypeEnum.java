@@ -7,7 +7,7 @@ package com.insigma.enums;
  * @Date 2022/6/27 14:59
  * @Version 1.0
  */
-public enum NotifyTypeEnum {
+public enum NotifyTypeEnum implements NotifyCodeInterface{
     SNAPSHOT,TICKER,ORDERBOOK;
 }
 

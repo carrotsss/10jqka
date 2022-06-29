@@ -1,4 +1,4 @@
-package com.insigma.dto;
+package com.insigma.dto.quote;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

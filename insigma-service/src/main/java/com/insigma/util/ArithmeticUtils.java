@@ -3,6 +3,7 @@ package main.java.com.insigma.util;
 import org.apache.commons.lang.math.NumberUtils;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 
 /**
  * @ClassName ArithmeticUtils
@@ -17,6 +18,11 @@ public final class ArithmeticUtils {
      */
     private static final Integer FLOEATE_PRECISION = 10;
 
+    public static final HashMap<String, String> DERECTION_MAP;
+    static {
+        DERECTION_MAP = new HashMap<>();
+        DERECTION_MAP.put("1c", "1");
+    }
     private ArithmeticUtils() {
         //禁止实例化
     }

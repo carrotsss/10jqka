@@ -9,7 +9,7 @@ package com.insigma.enums;
  */
 public enum ArkFundTableEnum {
     USK("funding"),
-    ;
+    EMPTY(null);
     private String name;
 
     ArkFundTableEnum(String name) {

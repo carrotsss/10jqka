@@ -30,4 +30,8 @@ public enum ApplicationTypeEnum {
         }
         return null;
     }
+
+    public static boolean isEquals(ApplicationTypeEnum applicationTypeEnum, String targetType) {
+        return applicationTypeEnum.getType().equals(targetType);
+    }
 }

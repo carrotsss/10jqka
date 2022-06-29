@@ -5,6 +5,15 @@ vanish:
   push:
     swith: false
 
+apex:
+  sftp:
+    host: 10.0.28.218
+    port: 22
+    username: root
+    password: root
+  sod:
+    local-path: /tmp/ovse/sod
+
 spring:
   datasource:
     dynamic:

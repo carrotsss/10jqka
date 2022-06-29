@@ -1,10 +1,10 @@
 package com.insigma.handler.message;
 
 import com.insigma.constant.QuoteFiledConst;
-import com.insigma.dto.LiteQuoteBaseDTO;
-import com.insigma.dto.LiteQuotePriceDTO;
-import com.insigma.dto.LiteQuoteTickerDTO;
-import com.insigma.dto.SecurityDTO;
+import com.insigma.dto.quote.LiteQuoteBaseDTO;
+import com.insigma.dto.quote.LiteQuotePriceDTO;
+import com.insigma.dto.quote.LiteQuoteTickerDTO;
+import com.insigma.dto.quote.SecurityDTO;
 import com.insigma.enums.NotifyTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
