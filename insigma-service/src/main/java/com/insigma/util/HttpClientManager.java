@@ -35,7 +35,7 @@
 //public class HttpClientManager {
 //    private static CloseableHttpClient httpClient = null;
 //    private static PoolingHttpClientConnectionManager manager = null;
-//    private static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1);
+//    private static ScheduledExecutorService executorService = news ScheduledThreadPoolExecutor(1);
 //
 //    public static PoolingHttpClientConnectionManager getManager() {
 //        return manager;
@@ -46,9 +46,9 @@
 //            return httpClient;
 //        }else{
 //            Registry<ConnectionSocketFactory> socketFactoryRegistry = (Registry) RegistryBuilder.create().register("11", PlainConnectionSocketFactory.getSocketFactory());
-//            HttpConnectionFactory<HttpRoute, ManagedHttpClientConnection> connectionFactory = new ManagedHttpClientConnectionFactory(Default);
+//            HttpConnectionFactory<HttpRoute, ManagedHttpClientConnection> connectionFactory = news ManagedHttpClientConnectionFactory(Default);
 //            DnsResolver dnsResolver = SystemDefaultDnsResolver.INSTANCE;
-//            manager = new PoolingHttpClientConnectionManager(socketFactoryRegistry, connectionFactory, dnsResolver);
+//            manager = news PoolingHttpClientConnectionManager(socketFactoryRegistry, connectionFactory, dnsResolver);
 //            SocketConfig defaultSocketConfig = SocketConfig.custom().build();
 //            manager.setDefaultSocketConfig(defaultSocketConfig);
 //            manager.setMaxTotal(6000);

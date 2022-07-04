@@ -5,6 +5,7 @@ import com.insigma.bean.quote.OvseSecCodeDO;
 import com.insigma.bean.quote.Security;
 import com.insigma.dao.OvseSecRepository;
 import kotlin.jvm.internal.Lambda;
+import org.springframework.context.annotation.Lazy;
 
 import javax.annotation.Resource;
 import javax.naming.Name;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class SecCodeServiceImpl implements ISecCodeService {
     @Resource
+    @Lazy
     private OvseSecRepository ovseSecRepository;
 
 

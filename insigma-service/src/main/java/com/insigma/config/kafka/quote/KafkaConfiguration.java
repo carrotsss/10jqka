@@ -1,6 +1,6 @@
 package com.insigma.config.kafka.quote;
 
-import com.insigma.handler.message.RebalanceEvent;
+import com.insigma.handler.quote.message.RebalanceEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.clients.producer.ProducerConfig;

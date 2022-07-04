@@ -19,8 +19,8 @@ public class HealthDataController {
 //    @OutReq(callerTypes = {})
 //    @ResponseBody
 //    public OvseResponse<List<String>> updateHistory(@RequestParam(value = "type") String type) {
-//        OvseResponse<List<String>> result = new OvseResponse<>();
-//        List<String> data = new ArrayList<>();
+//        OvseResponse<List<String>> result = news OvseResponse<>();
+//        List<String> data = news ArrayList<>();
     // result.setData(data);
 //        return result;
 //    }
